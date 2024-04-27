@@ -83,6 +83,7 @@ class VPlatformFile {
 
   String? get url {
     if (baseUrl == null) return null;
+    if (Uri.parse(baseUrl!).hasScheme) return baseUrl!;
     if (VPlatformFileUtils.baseMediaUrl == null) return baseUrl;
     return VPlatformFileUtils.baseMediaUrl! + baseUrl!;
   }
